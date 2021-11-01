@@ -14,7 +14,6 @@ warning.textContent = "Cannot add new book. Library already contains that book";
 warning.classList.add("hidden");
 header.appendChild(warning);
 
-
 function Book(title, author, noOfPages, isRead) {
     this.title = title;
     this.author = author;
@@ -28,6 +27,8 @@ function removeCards() {
     }
 }
 
+getFromLocalStorage();
+displaybooks();
 
 openFormButton[0].addEventListener('click', () => {
 
@@ -49,7 +50,7 @@ document.querySelector('body').addEventListener('click', function(event) {
         myLibrary.splice(cardIndex, 1);
         removeCards();
         displaybooks();
-
+        saveToLocalStorage();
     }
 
     if(event.target.className === 'update-reading btn') {
@@ -66,7 +67,7 @@ document.querySelector('body').addEventListener('click', function(event) {
             readingStatus.textContent = "Finished reading";
             book.isRead = "Yes";
         }
-
+        saveToLocalStorage();
     }
 
 });
@@ -90,6 +91,7 @@ function addBookToLibrary() {
     }
 
     myLibrary.push(book);
+    saveToLocalStorage();
     displaybooks();
 }
 
@@ -152,7 +154,6 @@ function createCard(book) {
 
 function displaybooks() {
     bookIndex = 0;
-
     myLibrary.forEach((book) => {
         createCard(book);
         bookIndex++;
@@ -165,4 +166,19 @@ function closeForm() {
     displaybooks();
     document.querySelector(".form-popup").style.visibility = "hidden";
 }
+
+function saveToLocalStorage() {
+    localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
+}
+
+function getFromLocalStorage() {
+    const lib = JSON.parse(localStorage.getItem('myLibrary'))
+    if (lib) {
+        myLibrary = lib.map((book) => new Book(book.title, book.author, book.noOfPages, book.isRead))
+    } else {
+      myLibrary = []
+    }
+}
+
+
 
