@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="top">
+            <h1>Library</h1>
+            <button class="spawn-form btn">Add book</button>
+    </div>
+    
+    <div class="content">
+    </div>
+
+    
+    <div class="form-popup" onsubmit="return false">
+        <form>
+          <label for="fname">Title</label>
+          <input type="text" id="title" name="title" placeholder="Book title.." required>
+      
+          <label for="lname">Author</label>
+          <input type="text" id="author" name="author" placeholder="Author.." required>
+
+          <label for="lname">Pages</label>
+          <input type="number" id="pages" name="pages" placeholder="Pages..." required>
+      
+          <label for="isRead">Have you read it?</label>
+          <select id="isRead" name="isRead">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+        
+          <input id="submit" type="submit" value="Submit">
+          <input id="cancel" type="reset" value="Cancel">
+
+        </form>
+    </div>
+
+    
+</body>
+</html>
