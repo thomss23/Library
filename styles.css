@@ -116,3 +116,16 @@ form {
     flex-direction: column;
     align-items: center;
 }
+
+@media screen and (max-width: 800px) {
+    .form-popup {
+        width: 100%;
+        position: relative;
+        left: 0%;
+        bottom: -10%;
+    }
+
+    form {
+        width:90%;
+    }
+}
