@@ -14,11 +14,21 @@ warning.textContent = "Cannot add new book. Library already contains that book";
 warning.classList.add("hidden");
 header.appendChild(warning);
 
-function Book(title, author, noOfPages, isRead) {
-    this.title = title;
-    this.author = author;
-    this.noOfPages = noOfPages;
-    this.isRead = isRead;
+// function Book(title, author, noOfPages, isRead) {
+//     this.title = title;
+//     this.author = author;
+//     this.noOfPages = noOfPages;
+//     this.isRead = isRead;
+// }
+
+class Book {
+    
+    constructor(title, author, noOfPages, isRead) {
+        this.title = title;
+        this.author = author;
+        this.noOfPages = noOfPages;
+        this.isRead = isRead;
+    }
 }
 
 function removeCards() {
